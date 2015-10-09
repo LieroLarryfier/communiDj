@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="communiDj">
+    <head>
+		<meta charset="utf-8">
+        <title>CommuniDJ</title>
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		<script src="scripts/angular.js"></script>
+		<script src="scripts/main.js"></script>
+    </head>
+    <body ng-controller="SongVoteCtrl">
+	
+        <div id="header">
+            <span>This is a communiDJ</span>
+            <ul id="menu">
+                <li>CommuniDJ</li>
+            </ul>
+        </div>
+        <div id="content">
+            <h2>SONGS</h2>
+            <h3>upvote song</h3>
+			Search: <input ng-model="query"/>
+			
+			<select size=20 ng-model="songVote">
+				<option ng-repeat="song in songs | filter:query" value="{{song.filename}}">
+				{{song.name}} - {{song.artist}}</option>
+			</select>
+			
+			<button ng-click="upvote()">upvote</button>
+			
+			<h3>playlist</h3>
+			<p>There are {{songs.length}} Songs in the Playlist</p>
+        </div>
+    </body>
+</html>
